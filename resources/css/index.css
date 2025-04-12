@@ -4,7 +4,59 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 90px 150px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
     color: rgb(0, 252, 0);
     overflow: scroll;
+}
+
+/* Container for content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: #359100;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.2rem;
+    color: #359100;
+    line-hight: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* Media queries for different screen sizes */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
 }
