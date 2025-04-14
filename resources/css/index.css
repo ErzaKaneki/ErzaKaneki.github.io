@@ -6,9 +6,36 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', monospace;; /* Classic font for retro feel */
     color: rgb(0, 252, 0);
-    overflow: scroll;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hides scrollbars */
+}
+
+/* CRT screen area (scrollable content) */
+.crt-screen {
+    width: 70%;
+    height: 70%;
+    margin: 0 auto;
+    position: relative;
+    overflow: auto; /* Allows scrolling */
+    background-color: rgba(0, 20, 0, 0.7); /* Slightly transpartent dark green background */
+    border-radius: 20px; /* Slight curve to match CRT Screen */
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3); /* Inner glow effect */
+    padding: 20px;
+
+    /* CRT scan line effect */
+    background-image: linear-gradient(
+        rgba(0,  0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0) 50%
+    );
+    background-size: 100% 4px; /* Size of the scan lines */
+
+    /* Add subtle glow effect */
+    animation: crtGlow 5s infinite alternate; 
 }
 
 /* Container for content */
@@ -19,16 +46,39 @@ body {
     padding: 20px;
 }
 
+h1, h2 {
+    color: rgb(0, 252, 0);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    font-family: 'Courier New', monospace;
+}
+
 h1 {
     font-size: 1.2rem;
-    color: #359100;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgb(0, 252, 0);
+    padding-bottom: 5px;
 }
 
 p {
-    font-size: 1.2rem;
-    color: #359100;
+    font-size: 1rem;
+    color: rgb(0, 252, 0);;
     line-height: 1.6;
+}
+
+a {
+    color: rgb(0, 252, 150);
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(0, 255, 150, 0.5);
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: rgb(150, 255, 150);
+    text-shadow: 0 0 8px rgba(150, 255, 150, 0.8);
 }
 
 img {
@@ -36,23 +86,94 @@ img {
     height: auto;
     display: block;
     border-radius: 50%;
-    border: 3px solid #fff;
+    border: 2px solid rgba(0, 252, 0);
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+ul li:before {
+    content: "> ";
+    color: rgb(0, 252, 0);
+}
+
+ul ul {
+    padding-left: 20px;
+}
+
+ul ul li:before {
+    content: "- ";
+}
+
+.coverLetter, .portfolio, .contact {
+    margin-top: 20px;
+    padding: 10px
+}
+
+/* Terminal cursor effect */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 102rem;
+    background-color: rgb(0, 252, 0);
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+}
+
+/* CRT glitch effect on hover elements */
+h1:hover, h2:hover {
+    animation: textGlitch 0.3s linear;
+    text-shadow: 0 0 10px rgb(0, 252, 0);
+}
+
+/* Animations */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes textGlitch {
+    0% { transform: translateX(0); }
+    25% { transform: tranlateX(2px); }
+    50% { transform: translateX(-1px); }
+    75% { transform: translateX(1px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes crtGlow {
+    from { box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3), 0 0 5px rgba(0, 255, 0, 0.3); }
+    to { box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.5); }
 }
 
 /* Media queries for different screen sizes */
 @media screen and (max-width: 768px) {
+    .crt-screen {
+        width: 80%;
+        height: 80%
+    }
+
     h1 {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .crt-screen {
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+    }
+
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .container {
