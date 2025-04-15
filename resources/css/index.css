@@ -1,14 +1,19 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-image: url('../media/CRT_monitor.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin: 0;
-    padding: 0;
+    background-color: #000; /* Black background behind the monitor */
     font-family: 'Courier New', monospace;; /* Classic font for retro feel */
     color: rgb(0, 252, 0);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,13 +22,18 @@ body {
 
 /* CRT screen area (scrollable content) */
 .crt-screen {
-    width: 70%;
-    height: 70%;
+    width: 54%;
+    height: 54%;
+    max-width: 750px;
+    max-height: 550px;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     overflow: auto; /* Allows scrolling */
-    background-color: rgba(0, 20, 0, 0.7); /* Slightly transpartent dark green background */
-    border-radius: 20px; /* Slight curve to match CRT Screen */
+    background-color: rgba(0, 20, 0, 0.95); /* Slightly transpartent dark green background */
+    border-radius: 15px; /* Slight curve to match CRT Screen */
     box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3); /* Inner glow effect */
     padding: 20px;
 
@@ -53,7 +63,7 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
@@ -64,9 +74,9 @@ h2 {
 }
 
 p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: rgb(0, 252, 0);;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 a {
@@ -74,6 +84,7 @@ a {
     text-decoration: none;
     text-shadow: 0 0 5px rgba(0, 255, 150, 0.5);
     transition: all 0.3s;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -118,9 +129,10 @@ ul ul li:before {
 .cursor {
     display: inline-block;
     width: 10px;
-    height: 102rem;
+    height: 1em;
     background-color: rgb(0, 252, 0);
     margin-left: 5px;
+    vertical-align: middle;
     animation: blink 1s step-end infinite;
 }
 
@@ -152,12 +164,13 @@ h1:hover, h2:hover {
 /* Media queries for different screen sizes */
 @media screen and (max-width: 768px) {
     .crt-screen {
-        width: 80%;
-        height: 80%
+        width: 52%;
+        height: 46%;
+        padding: 12px;
     }
 
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     p {
@@ -167,17 +180,17 @@ h1:hover, h2:hover {
 
 @media screen and (max-width: 480px) {
     .crt-screen {
-        width: 90%;
-        height: 90%;
-        padding: 10px;
+        width: 50%;
+        height: 40%;
+        padding: 8px;
     }
 
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .container {
         width: 95%;
-        padding: 10px;
+        padding: 8px;
     }
 }
