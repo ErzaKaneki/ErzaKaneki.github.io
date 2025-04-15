@@ -218,7 +218,7 @@ h1:hover, h2:hover {
         width: 50%;
         height: 41%; /* Slightly taller on mobile */
         padding: 8px;
-        top: 51.5%; /* Moved down a bit for mobile */
+        top: 60.5%; /* Moved down a bit for mobile */
     }
 
     h1 {
