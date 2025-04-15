@@ -215,7 +215,7 @@ h1:hover, h2:hover {
 
 @media screen and (max-width: 480px) {
     .crt-screen {
-        width: 50%;
+        width: 70%;
         height: 41%; /* Slightly taller on mobile */
         padding: 8px;
         top: 60.5%; /* Moved down a bit for mobile */
