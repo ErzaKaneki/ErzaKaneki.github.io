@@ -17,19 +17,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Hides scrollbars */
+    overflow: hidden; /* Hides scrolled text */
 }
 
 /* CRT screen area (scrollable content) */
 .crt-screen {
     width: 54%;
-    height: 65%;
+    height: 63%;
     max-width: 750px;
     max-height: 650px;
     margin: 0 auto;
     position: absolute;
-    top: 48.5%;
-    left: 50%;
+    top: 47.6%;
+    left: 49.7%;
     transform: translate(-50%, -50%);
     overflow: auto; /* Allows scrolling */
     background-color: rgba(0, 0, 0, 0); /* Slightly transpartent dark green background */
@@ -46,6 +46,7 @@ body {
 
     /* Add subtle glow effect */
     animation: crtGlow 5s infinite alternate; 
+
 }
 
 /* Container for content */
@@ -164,19 +165,20 @@ h1:hover, h2:hover {
 /* Scrollbar styling */
 /* For Webkit browsers (Chrome, Safari, newer Edge) */
 .crt-screen::-webkit-scrollbar {
-    width: 10px;
-    height: 10px
+    width: 8px;
+    height: 8px
 }
 
 .crt-screen::-webkit-scrollbar-track {
     background: rgba(0, 30, 0, 0.8);
-    border-radius: 5px;
 }
 
 .crt-screen::-webkit-scrollbar-thumb {
     background: rgba(0, 200, 0, 0.7);
     border-radius: 5px;
     border: 1px solid rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    min-height: 60px; /* Minimum height for scrollbar thumb */
 }
 
 .crt-screen::-webkit-scrollbar-thumb:hover {
@@ -195,7 +197,7 @@ h1:hover, h2:hover {
         width: 52%;
         height: 46%;
         padding: 12px;
-        top: 51%; /* Adjusted for Tablets */
+        top: 55%; /* Adjusted for Tablets */
     }
 
     h1 {
