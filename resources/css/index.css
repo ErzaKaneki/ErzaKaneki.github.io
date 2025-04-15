@@ -199,9 +199,9 @@ h1:hover, h2:hover {
 @media screen and (max-width: 768px) {
     .crt-screen {
         width: 52%;
-        height: 46%;
+        height: 59%;
         padding: 12px;
-        top: 55%; /* Adjusted for Tablets */
+        top: 48%; /* Adjusted for Tablets */
     }
 
     h1 {
