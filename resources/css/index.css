@@ -22,13 +22,13 @@ body {
 
 /* CRT screen area (scrollable content) */
 .crt-screen {
-    width: 54%;
-    height: 63%;
-    max-width: 750px;
-    max-height: 650px;
+    width: 38%;
+    height: 60%;
+    max-width: 700px;
+    max-height: 600px;
     margin: 0 auto;
     position: absolute;
-    top: 47.6%;
+    top: 47.2%;
     left: 49.7%;
     transform: translate(-50%, -50%);
     overflow: auto; /* Allows scrolling */
@@ -43,18 +43,14 @@ body {
         rgba(0, 0, 0, 0) 50%
     );
     background-size: 100% 4px; /* Size of the scan lines */
-
-    /* Add subtle glow effect */
-    animation: crtGlow 5s infinite alternate; 
-
 }
 
 /* Container for content */
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
 }
 
 h1, h2 {
@@ -64,24 +60,25 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
 }
 
 h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     border-bottom: 1px solid rgb(0, 252, 0);
-    padding-bottom: 5px;
+    padding-bottom: 4px;
 }
 
 h3 {
     text-decoration: dotted underline;
+    font-size: 1.1rem;
 }
 
 p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: rgb(0, 252, 0);;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 a {
@@ -94,22 +91,25 @@ a {
 
 a:hover {
     color: rgb(150, 255, 150);
-    text-shadow: 0 0 8px rgba(150, 255, 150, 0.8);
+    text-shadow: 0 0 15px rgba(150, 255, 150, 0.9);
+    text-decoration: none;
 }
 
 img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     display: block;
     border-radius: 50%;
     border: 2px solid rgba(0, 252, 0);
-    margin: 20px auto;
+    margin: 15px auto;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 ul {
     list-style-type: none;
-    padding-left: 10px;
+    padding-left: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 ul li:before {
@@ -118,7 +118,7 @@ ul li:before {
 }
 
 ul ul {
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 ul ul li:before {
@@ -126,17 +126,17 @@ ul ul li:before {
 }
 
 .coverLetter, .portfolio, .contact {
-    margin-top: 20px;
-    padding: 10px
+    margin-top: 15px;
+    padding: 8px;
 }
 
 /* Terminal cursor effect */
 .cursor {
     display: inline-block;
-    width: 10px;
+    width: 8px;
     height: 1em;
     background-color: rgb(0, 252, 0);
-    margin-left: 5px;
+    margin-left: 4px;
     vertical-align: middle;
     animation: blink 1s step-end infinite;
 }
@@ -169,8 +169,8 @@ h1:hover, h2:hover {
 /* Scrollbar styling */
 /* For Webkit browsers (Chrome, Safari, newer Edge) */
 .crt-screen::-webkit-scrollbar {
-    width: 8px;
-    height: 8px
+    width: 6px;
+    height: 6px
 }
 
 .crt-screen::-webkit-scrollbar-track {
@@ -179,10 +179,10 @@ h1:hover, h2:hover {
 
 .crt-screen::-webkit-scrollbar-thumb {
     background: rgba(0, 200, 0, 0.7);
-    border-radius: 5px;
+    border-radius: 3px;
     border: 1px solid rgba(0, 255, 0, 0.5);
     box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-    min-height: 60px; /* Minimum height for scrollbar thumb */
+    min-height: 50px; /* Minimum height for scrollbar thumb */
 }
 
 .crt-screen::-webkit-scrollbar-thumb:hover {
@@ -198,35 +198,43 @@ h1:hover, h2:hover {
 /* Media queries for different screen sizes */
 @media screen and (max-width: 768px) {
     .crt-screen {
-        width: 52%;
-        height: 59%;
-        padding: 12px;
+        width: 50%;
+        height: 57%;
+        padding: 10px;
         top: 48%; /* Adjusted for Tablets */
-    }
-
-    h1 {
-        font-size: 1.2rem;
-    }
-
-    p {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .crt-screen {
-        width: 70%;
-        height: 35%; /* Slightly taller on mobile */
-        padding: 8px;
-        top: 48.5%; /* Moved down a bit for mobile */
     }
 
     h1 {
         font-size: 1.1rem;
     }
 
+    p {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .crt-screen {
+        width: 68%;
+        height: 33%; /* Slightly taller on mobile */
+        padding: 6px;
+        top: 48.5%; /* Moved down a bit for mobile */
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
     .container {
-        width: 95%;
-        padding: 8px;
+        width: 94%;
+        padding: 6px;
+    }
+
+    ul {
+        padding-left: 5px;
+    }
+
+    ul ul {
+        padding-left: 10px;
     }
 }
