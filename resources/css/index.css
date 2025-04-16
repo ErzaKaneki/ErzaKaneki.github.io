@@ -22,14 +22,14 @@ body {
 
 /* CRT screen area (scrollable content) */
 .crt-screen {
-    width: 38%;
-    height: 60%;
+    width: 38vw;
+    height: 60vh;
     max-width: 700px;
     max-height: 600px;
     margin: 0 auto;
     position: absolute;
-    top: 47.2%;
-    left: 49.7%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     overflow: auto; /* Allows scrolling */
     background-color: rgba(0, 0, 0, 0); /* Slightly transpartent dark green background */
@@ -60,23 +60,23 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
     margin-bottom: 8px;
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.2rem);;
     border-bottom: 1px solid rgb(0, 252, 0);
     padding-bottom: 4px;
 }
 
 h3 {
     text-decoration: dotted underline;
-    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 1.6vw, 1.1rem);
 }
 
 p {
-    font-size: 0.9rem;
+    font-size:clamp(0.7rem, 1.4vw, 0.9rem);
     color: rgb(0, 252, 0);;
     line-height: 1.4;
 }
@@ -195,34 +195,65 @@ h1:hover, h2:hover {
     scrollbar-color: rgba(0, 200, 0, 0.7) rgba(0, 30,0, 0.8);
 }
 
+/* Responsive design with CSS varibles for better screen adaptation */
+:root {
+    --screen-position-top: 50%;
+    --screen-position-left: 50%;
+    --screen-width: 38vw;
+    --screen-height: 60vw;
+}
+
 /* Media queries for different screen sizes */
-@media screen and (max-width: 768px) {
-    .crt-screen {
-        width: 50%;
-        height: 57%;
-        padding: 10px;
-        top: 48%; /* Adjusted for Tablets */
-    }
-
-    h1 {
-        font-size: 1.1rem;
-    }
-
-    p {
-        font-size: 0.85rem;
+@media screen and (max-width: 1200px) {
+    :root {
+        --screen-width: 45vw;
+        --screen-height: 60vh;
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 992px) {
+    :root {
+        --screen-width: 50vw;
+        --screen-height: 58vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --screen-width: 60vw;
+        --screen-height: 55vh;
+        --screen-position-top: 48%;
+    }
+    
     .crt-screen {
-        width: 68%;
-        height: 33%; /* Slightly taller on mobile */
-        padding: 6px;
-        top: 48.5%; /* Moved down a bit for mobile */
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
     }
 
-    h1 {
-        font-size: 1rem;
+    p {
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    :root {
+        --screen-width: 70vw;
+        --screen-height: 45vh;
+        --screen-position-top: 48.5%;
+    }
+
+    .crt-screen {
+        padding: 8px;
+    }    
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --screen-width: 75vw;
+        --screen-height: 40vh;
     }
 
     .container {
@@ -235,6 +266,14 @@ h1:hover, h2:hover {
     }
 
     ul ul {
-        padding-left: 10px;
+        padding-left: 10px
     }
+}
+
+/* CSS variables */
+.crt-screen {
+    width: var(--screen-width);
+    height: var(--screen-height);
+    top: var(--screen-position-top);
+    left: var(--screen-position-left);
 }
